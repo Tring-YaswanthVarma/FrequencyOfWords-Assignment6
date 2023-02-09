@@ -58,8 +58,8 @@ class PriorityQueue{
         }
     }
     public void sorted(HashMap<String, Integer> frequency){
-        for (Map.Entry m : frequency.entrySet()) {
-            add((String)m.getKey(), (int)m.getValue());
+        for (Map.Entry<String, Integer> m : frequency.entrySet()) {
+            add(m.getKey(), m.getValue());
         }
     }
 
