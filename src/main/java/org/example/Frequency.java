@@ -76,7 +76,7 @@ class PriorityQueue{
 public class Frequency {
     public static void main(String[] args) throws IOException {
         Logger logger = Logger.getLogger("com.api.jar");
-        String filePath = "C:/Users/Tringapps-User11/Frequency-Assignment6.txt";
+        String filePath = "/C:/Users/Tringapps-User11/Frequency-Assignment6.txt";
         File file = new File(filePath);
         Scanner words = new Scanner(file);
         int count = 0;
