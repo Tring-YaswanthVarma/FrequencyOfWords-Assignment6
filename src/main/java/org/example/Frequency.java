@@ -6,12 +6,27 @@ import java.util.Map;
 import java.util.Scanner;
 
 class Node{
-     public String key;
-     public int value;
-     public Node next = null;
+     private String key;
+     private int value;
+     private Node next = null;
      public Node(String key, int value){
          this.key = key;
          this.value = value;
+     }
+
+     public String getKey(){
+         return key;
+     }
+
+     public int getValue(){
+         return value;
+     }
+     public void setNext(Node next){
+         this.next = next;
+     }
+
+     public Node getNext(){
+         return next;
      }
 }
 
@@ -23,22 +38,22 @@ class PriorityQueue{
         int flag = 0;
         if (rootNode == null){
             rootNode = newNode;
-        }else if (value >= rootNode.value){
-            newNode.next = rootNode;
+        }else if (value >= rootNode.getValue()){
+            newNode.setNext(rootNode);
             rootNode = newNode;
         } else{
             Node temp = rootNode;
-            while(temp.next != null){
-                if(value >= temp.next.value){
-                    newNode.next = temp.next;
-                    temp.next = newNode;
+            while(temp.getNext() != null){
+                if(value >= temp.getNext().getValue()){
+                    newNode.setNext(temp.getNext());
+                    temp.setNext(newNode);
                     flag = 1;
                     break;
                 }
-                temp = temp.next;
+                temp = temp.getNext();
             }
             if (flag == 0){
-                temp.next = newNode;
+                temp.setNext(newNode);
             }
         }
     }
@@ -51,8 +66,8 @@ class PriorityQueue{
     public void print(){
         Node temp = rootNode;
         while(temp != null){
-            System.out.println(temp.key + " " + temp.value);
-            temp = temp.next;
+            System.out.println(temp.getKey() + " " + temp.getValue());
+            temp = temp.getNext();
         }
     }
 }
