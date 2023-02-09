@@ -57,7 +57,7 @@ class PriorityQueue{
             }
         }
     }
-    public void sorted(HashMap<String, Integer> frequency){
+    public void sorted(Map<String, Integer> frequency){
         for (Map.Entry<String, Integer> m : frequency.entrySet()) {
             add(m.getKey(), m.getValue());
         }
@@ -66,7 +66,7 @@ class PriorityQueue{
     public void print(){
         Node temp = rootNode;
         while(temp != null){
-            System.out.println(temp.getKey() + " " + temp.getValue());
+            System.out.println(temp.getKey() + " : " + temp.getValue());
             temp = temp.getNext();
         }
     }
