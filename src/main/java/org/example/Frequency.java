@@ -90,7 +90,8 @@ public class Frequency {
             }
             count += 1;
         }
-        logger.info("Total word count : " + count);
+        String s = "Total word count : " + count;
+        logger.info(s);
         PriorityQueue q = new PriorityQueue();
         q.sorted(freqCount);
         logger.info("Printing sorted queue");
