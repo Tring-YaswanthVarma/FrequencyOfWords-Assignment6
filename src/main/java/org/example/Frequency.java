@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 class Node{
      private String key;
@@ -31,6 +32,7 @@ class Node{
 }
 
 class PriorityQueue{
+    Logger logger = Logger.getLogger("com.api.jar");
     private Node rootNode  = null;
 
     public void add(String key, int value){
@@ -66,14 +68,16 @@ class PriorityQueue{
     public void print(){
         Node temp = rootNode;
         while(temp != null){
-            System.out.println(temp.getKey() + " : " + temp.getValue());
+            logger.info(temp.getKey() + " : " + temp.getValue());
             temp = temp.getNext();
         }
     }
 }
 public class Frequency {
     public static void main(String[] args) throws IOException {
-        File file = new File("C:\\Users\\Tringapps-User11\\Frequency-Assignment6.txt");
+        Logger logger = Logger.getLogger("com.api.jar");
+        String filePath = "C:\\Users\\Tringapps-User11\\Frequency-Assignment6.txt";
+        File file = new File(filePath);
         Scanner words = new Scanner(file);
         int count = 0;
         HashMap<String, Integer> freqCount = new HashMap<>();
@@ -86,10 +90,10 @@ public class Frequency {
             }
             count += 1;
         }
-        System.out.println("Total word count : " + count);
+        logger.info("Total word count : " + count);
         PriorityQueue q = new PriorityQueue();
         q.sorted(freqCount);
-        System.out.println("Printing sorted queue");
+        logger.info("Printing sorted queue");
         q.print();
     }
 }
