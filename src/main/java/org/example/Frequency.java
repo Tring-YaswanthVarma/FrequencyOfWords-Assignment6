@@ -11,7 +11,6 @@ public class Frequency {
         String filePath = "" + "C:/Users/Tringapps-User11/Frequency-Assignment6.txt";
         File file = new File(filePath);
         Scanner words = new Scanner(file);
-        System.out.println("Words is : " + words);
         int count = 0;
         HashMap<String, Integer> freqCount = new HashMap<>();
         while(words.hasNext()){
